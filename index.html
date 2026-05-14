@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a14" />
+  <meta name="description" content="Weslffy — Developer · Builder · Explorer. Welcome to my code universe." />
+  <meta name="author" content="Weslffy" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Weslffy · Homepage" />
+  <meta property="og:description" content="Developer · Builder · Explorer — Welcome to my code universe." />
+  <meta property="og:url" content="https://weslffy.github.io/" />
+
+  <title>Weslffy · Homepage</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2300e5ff'/%3E%3Cstop offset='1' stop-color='%23b14bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23g)'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-family='monospace' font-weight='800' font-size='30' fill='%230a0a14'%3EW%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ============ Boot loader ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-ring"></div>
+    <div class="loader-text">INITIALIZING…</div>
+  </div>
+
+  <!-- ============ Particle / grid background ============ -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ============ Custom cursor ============ -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ============ Top navigation ============ -->
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="#hero" aria-label="Home">
+      <span class="logo-mark">W</span>
+      <span class="logo-text">eslffy</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about" data-link>About</a>
+      <a href="#skills" data-link>Skills</a>
+      <a href="#projects" data-link>Projects</a>
+      <a href="blog.html" data-link>Blog</a>
+      <a href="#stats" data-link>Stats</a>
+      <a href="#guestbook" data-link>Guestbook</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+      <svg class="sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    </button>
+  </header>
+
+  <main>
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <span class="dot"></span> Available for collaborations
+        </div>
+
+        <h1 class="hero-title">
+          <span class="line">Hi, I'm</span>
+          <span class="line gradient glitch" data-text="Weslffy">Weslffy</span>
+        </h1>
+
+        <p class="hero-sub">
+          <span class="prompt">$</span>
+          <span id="typewriter" class="typewriter"></span>
+          <span class="caret">▍</span>
+        </p>
+
+        <p class="hero-desc">
+          A developer who loves open source and turning ideas into code.<br />
+          This page is a little window into my GitHub life — feel free to look around.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">
+            <span>View Work</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/Weslffy" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.27-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.17a10.94 10.94 0 0 1 5.74 0c2.19-1.48 3.15-1.17 3.15-1.17.62 1.59.23 2.76.11 3.05.73.8 1.18 1.82 1.18 3.07 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <a href="#about" class="scroll-hint" aria-label="Scroll down">
+            <span></span><span></span><span></span>
+            <small>scroll</small>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <span class="section-no">// 01</span>
+        <h2><span class="gradient">About</span> Me</h2>
+        <p class="section-sub">A short story about who I am</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card glass reveal">
+          <div class="avatar">
+            <img src="https://github.com/Weslffy.png?size=200" alt="Weslffy avatar" loading="lazy" onerror="this.style.display='none'" />
+            <span class="avatar-ring"></span>
+          </div>
+          <h3>Weslffy</h3>
+          <p class="muted">Developer · Builder · Explorer</p>
+          <ul class="about-list">
+            <li><span>📍</span> Based on Planet Earth</li>
+            <li><span>💻</span> Crafting things on the web</li>
+            <li><span>🌱</span> Always learning, always shipping</li>
+            <li><span>⚡</span> Coffee → Code → Repeat</li>
+          </ul>
+        </div>
+
+        <div class="about-text reveal">
+          <p>
+            I love breaking <strong class="hl">hard problems</strong> down into clean
+            lines of code — and making them <strong class="hl">look good</strong>
+            while I'm at it.
+          </p>
+          <p>
+            These days I'm focused on the web — frontend, full-stack apps, and
+            open-source collaboration. My goal is to ship things that make
+            someone smile or say "oh that's clever".
+          </p>
+          <p class="muted">
+            "Stay hungry. Stay foolish. — and ship it."
+          </p>
+
+          <div class="kpi-row">
+            <div class="kpi glass">
+              <div class="num" data-count="3">0</div>
+              <div class="lbl">Years coding</div>
+            </div>
+            <div class="kpi glass">
+              <div class="num" data-count="12">0</div>
+              <div class="lbl">Projects</div>
+            </div>
+            <div class="kpi glass">
+              <div class="num" data-count="∞" data-raw="999">0</div>
+              <div class="lbl">Cups of ☕</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Skills ============ -->
+    <section class="section" id="skills">
+      <div class="section-head reveal">
+        <span class="section-no">// 02</span>
+        <h2><span class="gradient">Tech</span> Stack</h2>
+        <p class="section-sub">The tools I work with every day</p>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill glass reveal">
+          <h3><span class="skill-ico">⚛️</span> Frontend</h3>
+          <div class="chip-row">
+            <span class="chip">HTML5</span>
+            <span class="chip">CSS3</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">React</span>
+            <span class="chip">Vue</span>
+            <span class="chip">TailwindCSS</span>
+          </div>
+        </article>
+
+        <article class="skill glass reveal">
+          <h3><span class="skill-ico">🛠️</span> Backend</h3>
+          <div class="chip-row">
+            <span class="chip">Node.js</span>
+            <span class="chip">Python</span>
+            <span class="chip">Go</span>
+            <span class="chip">Express</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Redis</span>
+          </div>
+        </article>
+
+        <article class="skill glass reveal">
+          <h3><span class="skill-ico">☁️</span> DevOps</h3>
+          <div class="chip-row">
+            <span class="chip">Git</span>
+            <span class="chip">Docker</span>
+            <span class="chip">GitHub Actions</span>
+            <span class="chip">Nginx</span>
+            <span class="chip">Linux</span>
+            <span class="chip">Vercel</span>
+          </div>
+        </article>
+
+        <article class="skill glass reveal">
+          <h3><span class="skill-ico">🎨</span> Design</h3>
+          <div class="chip-row">
+            <span class="chip">Figma</span>
+            <span class="chip">Sketch</span>
+            <span class="chip">Photoshop</span>
+            <span class="chip">UI / UX</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Projects ============ -->
+    <section class="section" id="projects">
+      <div class="section-head reveal">
+        <span class="section-no">// 03</span>
+        <h2><span class="gradient">Featured</span> Projects</h2>
+        <p class="section-sub">A few things I'm proud of</p>
+      </div>
+
+      <div class="proj-grid">
+        <a class="proj glass reveal" href="https://github.com/Weslffy" target="_blank" rel="noopener">
+          <div class="proj-top">
+            <span class="proj-tag">✨ Featured</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
+          <h3>Project Alpha</h3>
+          <p>An experimental project that converts caffeine into code — obsessed with developer experience.</p>
+          <div class="chip-row small">
+            <span class="chip">TypeScript</span>
+            <span class="chip">React</span>
+            <span class="chip">Vite</span>
+          </div>
+          <div class="proj-foot">
+            <span>★ 128</span><span>⑂ 24</span>
+          </div>
+        </a>
+
+        <a class="proj glass reveal" href="https://github.com/Weslffy" target="_blank" rel="noopener">
+          <div class="proj-top">
+            <span class="proj-tag">🚀 Live</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
+          <h3>Codex Garden</h3>
+          <p>A personal knowledge garden where snippets, notes and ideas grow side by side.</p>
+          <div class="chip-row small">
+            <span class="chip">Next.js</span>
+            <span class="chip">MDX</span>
+            <span class="chip">Tailwind</span>
+          </div>
+          <div class="proj-foot">
+            <span>★ 86</span><span>⑂ 15</span>
+          </div>
+        </a>
+
+        <a class="proj glass reveal" href="https://github.com/Weslffy" target="_blank" rel="noopener">
+          <div class="proj-top">
+            <span class="proj-tag">🧪 Lab</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
+          <h3>Pixel Forge</h3>
+          <p>A toy collection built on Canvas + WebGL — making pixels dance, one frame at a time.</p>
+          <div class="chip-row small">
+            <span class="chip">JavaScript</span>
+            <span class="chip">WebGL</span>
+            <span class="chip">Canvas</span>
+          </div>
+          <div class="proj-foot">
+            <span>★ 42</span><span>⑂ 9</span>
+          </div>
+        </a>
+
+        <a class="proj glass reveal" href="https://github.com/Weslffy" target="_blank" rel="noopener">
+          <div class="proj-top">
+            <span class="proj-tag">📦 OSS</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
+          <h3>Tiny Utils</h3>
+          <p>A zero-dependency, tree-shakable bundle of JavaScript helpers — grab what you need.</p>
+          <div class="chip-row small">
+            <span class="chip">TypeScript</span>
+            <span class="chip">Rollup</span>
+            <span class="chip">Vitest</span>
+          </div>
+          <div class="proj-foot">
+            <span>★ 31</span><span>⑂ 5</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="center reveal">
+        <a class="btn btn-ghost" href="https://github.com/Weslffy?tab=repositories" target="_blank" rel="noopener">
+          <span>View all repositories</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ Latest Posts (Blog preview) ============ -->
+    <section class="section" id="latest">
+      <div class="section-head reveal">
+        <span class="section-no">// 04</span>
+        <h2><span class="gradient">Latest</span> Writing</h2>
+        <p class="section-sub">Notes, deep dives and occasional rants</p>
+      </div>
+
+      <div class="latest-grid" id="latestGrid" aria-live="polite">
+        <!-- Filled in by JS. Fallback in case JS is disabled / fetch fails: -->
+        <noscript>
+          <p class="muted center" style="grid-column:1/-1">JavaScript is required to load blog previews. Visit <a href="blog.html">/blog</a> instead.</p>
+        </noscript>
+        <div class="latest-skeleton glass"></div>
+        <div class="latest-skeleton glass"></div>
+        <div class="latest-skeleton glass"></div>
+      </div>
+
+      <div class="center reveal" style="margin-top: 28px;">
+        <a class="btn btn-ghost" href="blog.html">
+          <span>Read the blog</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ GitHub Stats ============ -->
+    <section class="section" id="stats">
+      <div class="section-head reveal">
+        <span class="section-no">// 05</span>
+        <h2><span class="gradient">GitHub</span> Stats</h2>
+        <p class="section-sub">Live numbers via github-readme-stats</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card glass reveal">
+          <img loading="lazy"
+               src="https://github-readme-stats.vercel.app/api?username=Weslffy&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=00000000&title_color=00e5ff&icon_color=b14bff&text_color=cfd6e4"
+               alt="GitHub stats" />
+        </div>
+        <div class="stat-card glass reveal">
+          <img loading="lazy"
+               src="https://github-readme-stats.vercel.app/api/top-langs/?username=Weslffy&layout=compact&hide_border=true&bg_color=00000000&title_color=00e5ff&text_color=cfd6e4"
+               alt="Top languages" />
+        </div>
+        <div class="stat-card glass reveal full">
+          <img loading="lazy"
+               src="https://github-readme-streak-stats.herokuapp.com?user=Weslffy&hide_border=true&background=00000000&stroke=00e5ff&ring=b14bff&fire=ff4d8d&currStreakLabel=00e5ff&sideLabels=cfd6e4&dates=8a93a6&currStreakNum=ffffff&sideNums=ffffff"
+               alt="GitHub streak" />
+        </div>
+        <div class="stat-card glass reveal full">
+          <img loading="lazy"
+               src="https://github-readme-activity-graph.vercel.app/graph?username=Weslffy&bg_color=00000000&color=cfd6e4&line=00e5ff&point=b14bff&area=true&hide_border=true"
+               alt="Contribution graph" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="section" id="contact">
+      <div class="section-head reveal">
+        <span class="section-no">// 06</span>
+        <h2>Let's <span class="gradient">Connect</span></h2>
+        <p class="section-sub">Find me here, or drop a message below</p>
+      </div>
+
+      <div class="contact-grid">
+        <a class="contact glass reveal" href="https://github.com/Weslffy" target="_blank" rel="noopener" data-tilt>
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.27-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.17a10.94 10.94 0 0 1 5.74 0c2.19-1.48 3.15-1.17 3.15-1.17.62 1.59.23 2.76.11 3.05.73.8 1.18 1.82 1.18 3.07 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+          <div>
+            <h4>GitHub</h4>
+            <p>@Weslffy</p>
+          </div>
+        </a>
+
+        <a class="contact glass reveal" href="mailto:hello@example.com" data-tilt>
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <div>
+            <h4>Email</h4>
+            <p>hello@example.com</p>
+          </div>
+        </a>
+
+        <a class="contact glass reveal" href="https://x.com/" target="_blank" rel="noopener" data-tilt>
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.78l-4.74-6.2L4.8 22H2l7-7.99L2 2h6.91l4.29 5.66L18.244 2Zm-2.38 18h1.86L8.22 4H6.26l9.6 16Z"/></svg>
+          <div>
+            <h4>Twitter / X</h4>
+            <p>@weslffy</p>
+          </div>
+        </a>
+
+        <a class="contact glass reveal" href="#guestbook" data-tilt>
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+          <div>
+            <h4>Guestbook</h4>
+            <p>Leave a message</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ Guestbook (Giscus) ============ -->
+    <section class="section" id="guestbook">
+      <div class="section-head reveal">
+        <span class="section-no">// 07</span>
+        <h2><span class="gradient">Guestbook</span></h2>
+        <p class="section-sub">Powered by <a href="https://giscus.app" target="_blank" rel="noopener" class="ulink">Giscus</a> + GitHub Discussions — sign in with GitHub to chat</p>
+      </div>
+
+      <div class="giscus-wrap glass reveal">
+        <div id="giscus-container"></div>
+        <!--
+          ===============================================================
+          Giscus configuration
+          ---------------------------------------------------------------
+          1.  Go to https://github.com/Weslffy/Weslffy.github.io/settings
+              and enable "Discussions".
+          2.  Install the Giscus app on the repo:
+              https://github.com/apps/giscus
+          3.  Visit https://giscus.app and fill in repo:
+              Weslffy/Weslffy.github.io
+              It will hand you a `data-repo-id` and `data-category-id`.
+          4.  Paste those values into the data-* attrs below, then push.
+          ===============================================================
+        -->
+        <script src="https://giscus.app/client.js"
+                data-repo="Weslffy/Weslffy.github.io"
+                data-repo-id="REPLACE_ME"
+                data-category="General"
+                data-category-id="REPLACE_ME"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async></script>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>
+        <span class="prompt">$</span> echo "Built with ❤ by <strong>Weslffy</strong> · <span id="year"></span>"
+      </p>
+      <p class="muted small">Open-sourced on GitHub · Inspired by night-mode sunrises 🌌</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/posts.js" defer></script>
+  <script src="assets/js/latest.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a14" />
+  <meta name="description" content="Article · Weslffy" />
+  <title id="pageTitle">Post · Weslffy</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2300e5ff'/%3E%3Cstop offset='1' stop-color='%23b14bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23g)'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-family='monospace' font-weight='800' font-size='30' fill='%230a0a14'%3EW%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- highlight.js theme (atom-one-dark works well with our palette) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/atom-one-dark.min.css" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="page-post">
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-ring"></div>
+    <div class="loader-text">RENDERING…</div>
+  </div>
+
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Reading progress bar -->
+  <div class="reading-bar" id="readingBar" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="index.html" aria-label="Home">
+      <span class="logo-mark">W</span>
+      <span class="logo-text">eslffy</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="index.html#stats">Stats</a>
+      <a href="index.html#guestbook">Guestbook</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+      <svg class="sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    </button>
+  </header>
+
+  <main>
+    <article class="section post-section">
+      <a class="post-back" href="blog.html">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>All posts</span>
+      </a>
+
+      <header class="post-header reveal" id="postHeader" hidden>
+        <div class="post-meta">
+          <time id="postDate"></time>
+          <span class="dot-sep">·</span>
+          <span id="postReadTime"></span>
+        </div>
+        <h1 id="postTitle" class="post-title"></h1>
+        <p id="postExcerpt" class="post-excerpt muted"></p>
+        <div id="postTags" class="chip-row small"></div>
+      </header>
+
+      <div id="postContent" class="prose reveal" hidden></div>
+
+      <div id="postError" class="post-error glass" hidden>
+        <h3>Couldn't load this post 😕</h3>
+        <p class="muted">
+          Make sure the file exists at <code id="postErrorPath">posts/&lt;slug&gt;.md</code>
+          and is listed in <code>posts/manifest.json</code>.
+        </p>
+        <p class="muted small">
+          If you opened this page directly from your filesystem, start a local
+          server first — <code>python3 -m http.server 8080</code> works.
+        </p>
+        <a class="btn btn-ghost" href="blog.html">Back to blog</a>
+      </div>
+
+      <footer class="post-footer reveal" id="postFooter" hidden>
+        <div class="post-nav">
+          <a id="prevPost" class="post-nav-link" href="#" hidden>
+            <span class="muted small">← Previous</span>
+            <strong></strong>
+          </a>
+          <a id="nextPost" class="post-nav-link right" href="#" hidden>
+            <span class="muted small">Next →</span>
+            <strong></strong>
+          </a>
+        </div>
+      </footer>
+    </article>
+
+    <section class="section comments-section" id="postComments">
+      <div class="section-head">
+        <span class="section-no">// comments</span>
+        <h2><span class="gradient">Discussion</span></h2>
+        <p class="section-sub">Sign in with GitHub to comment — per-post threads via Giscus.</p>
+      </div>
+      <div class="giscus-wrap glass">
+        <div id="giscus-container"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><span class="prompt">$</span> echo "Built with ❤ by <strong>Weslffy</strong> · <span id="year"></span>"</p>
+      <p class="muted small"><a href="blog.html" class="ulink">← Back to blog</a></p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- Markdown + syntax highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/posts.js" defer></script>
+  <script src="assets/js/post.js" defer></script>
+</body>
+</html>

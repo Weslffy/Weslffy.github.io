@@ -1,0 +1,7 @@
+{
+  "$comment": "Newest first. Each slug must match a file at posts/<slug>.md. After adding/removing posts, just push to GitHub — no build step required.",
+  "slugs": [
+    "building-this-site",
+    "hello-world"
+  ]
+}
