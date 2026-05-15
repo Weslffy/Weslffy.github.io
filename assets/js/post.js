@@ -190,9 +190,9 @@
     s.crossOrigin = 'anonymous';
     Object.entries({
       'data-repo':              'Weslffy/Weslffy.github.io',
-      'data-repo-id':           'REPLACE_ME',
+      'data-repo-id':           'R_kgDOP5u3Yw',
       'data-category':          'General',
-      'data-category-id':       'REPLACE_ME',
+      'data-category-id':       'DIC_kwDOP5u3Y84C9FFZ',
       'data-mapping':           'pathname',
       'data-strict':            '0',
       'data-reactions-enabled': '1',
